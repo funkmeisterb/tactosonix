@@ -1,0 +1,10 @@
+AMBIANT SOUNDS
+==============
+ambiant_dafunk_119.97BPM_len8.wav
+	loop of Da Funk by Daft Punk
+	8 beats @ 120 bpm: 4 s
+ambiant_Incarnadine__modulated_radio_static.wav
+	From FreeSound: http://www.freesound.org/samplesViewSingle.php?id=16997
+	40 beats @ 120 bpm: 20 s
+ambiant__Luftrum__oceanwavescrushing.wav
+	From 
