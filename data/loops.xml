@@ -1,0 +1,15 @@
+<loops bpm="120">
+	<drum path="sound/Country_Drums.aif" colour="0xFF0000" lifetime="-1" beats="32" />
+	<drum path="sound/Funk_Drums.aif" colour="0xAB00AB" lifetime="-1" beats="32" />
+	<drum path="sound/HipHop_Drums.aif" colour="0x0000FF" lifetime="-1" beats="32" />
+	<drum path="sound/Jazz_Drums.aif" colour="0x00FF00" lifetime="-1" beats="32" />
+	<bass path="sound/Country_Bass.aif" colour="0xFF0000" lifetime="-1" beats="32" />
+	<bass path="sound/Funk_Bass.aif" colour="0xAB00AB" lifetime="-1" beats="32" />
+	<bass path="sound/HipHop_Bass.aif" colour="0x0000FF" lifetime="-1" beats="32" />
+	<bass path="sound/Jazz_Bass.aif" colour="0x00FF00" lifetime="-1" beats="32" />
+	<lead path="sound/Country_Banjo.aif" colour="0xFF0000" lifetime="-1" beats="32" />
+	<lead path="sound/Funk_Guitar.aif" colour="0xAB00AB" lifetime="-1" beats="32" />
+	<lead path="sound/Funk_Saxophone.aif" colour="0xAB00AB" lifetime="-1" beats="32" />
+	<lead path="sound/HipHop_Synth.aif" colour="0x0000FF" lifetime="-1" beats="32" />
+	<lead path="sound/Jazz_Horn.aif" colour="0x00FF00" lifetime="-1" beats="32" />
+</loops>

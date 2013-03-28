@@ -79,9 +79,89 @@ void metaphorKitchen::setup()
 	m_dragOffset.x = 0;
 	m_dragOffset.y = 0;
 	
-	m_nBPM = 120;
+	// ********************************************************************************
+	// LOAD CONFIG
+	// ********************************************************************************
+	if (!m_settings.loadFile("loops.xml"))
+	{
+		ofLog(OF_LOG_FATAL_ERROR, "Failed to load music loop configuration");
+	}
+	m_nBPM = m_settings.getAttribute("loops", "bpm", 0);
+	m_settings.pushTag("loops");
 
-	// Set up the four stove tops
+	// Create menu structure and load loops
+	ofColor coulourMenuNodes(0x5D, 0xB1, 0xDB);
+	ofPoint ptCentre = ofPoint(ofGetWidth()/2, ofGetHeight());
+	ofxTactoSHPMNode* root = new ofxTactoSHPMNode(ofColor(0x25, 0x85, 0xD9));
+
+	// ********************************************************************************
+	// LOAD THE STORED LOOPS
+	// ********************************************************************************
+	// 1) Loops 1 - Drums
+	ofxTactoSHPMNode* loops1 = new ofxTactoSHPMNode(coulourMenuNodes, TACTO_LOOPTYPE_DRUMS);
+	int numDrums = m_settings.getNumTags("drum");
+	for (int i=0; i < numDrums; i++)
+	{
+		std::string currPath = m_settings.getAttribute("drum", "path", "", i);
+		std::string sCurrColour = m_settings.getAttribute("drum", "colour", "0xFFFFFF", i);
+		int nCurrColour = ofHexToInt(sCurrColour);
+		int r = (nCurrColour & 0xFF0000) >> 16;
+		int g = (nCurrColour & 0x00FF00) >> 8;
+		int b = nCurrColour & 0x0000FF;
+		ofColor currColour = ofColor(r, g, b);
+		int currLifetime = m_settings.getAttribute("drum", "lifetime", 0, i);
+		int currNumBeats = m_settings.getAttribute("drum", "beats", 4, i);
+		
+		ofxTactoBeatNode* currDrumLoop = new ofxTactoBeatNode(currColour, currPath, currLifetime, TACTO_LOOPTYPE_DRUMS, currNumBeats);
+		loops1->addChild(currDrumLoop);
+	}
+	root->addChild(loops1);
+	
+	// 2) Loops 2 - Bass
+	ofxTactoSHPMNode* loops2 = new ofxTactoSHPMNode(coulourMenuNodes, TACTO_LOOPTYPE_BASS);
+	int numBass = m_settings.getNumTags("bass");
+	for (int i=0; i < numBass; i++)
+	{
+		std::string currPath = m_settings.getAttribute("bass", "path", "", i);
+		std::string sCurrColour = m_settings.getAttribute("bass", "colour", "0xFFFFFF", i);
+		int nCurrColour = ofHexToInt(sCurrColour);
+		int r = (nCurrColour & 0xFF0000) >> 16;
+		int g = (nCurrColour & 0x00FF00) >> 8;
+		int b = nCurrColour & 0x0000FF;
+		ofColor currColour = ofColor(r, g, b);
+		int currLifetime = m_settings.getAttribute("bass", "lifetime", 0, i);
+		int currNumBeats = m_settings.getAttribute("bass", "beats", 4, i);
+		
+		ofxTactoBeatNode* currBassLoop = new ofxTactoBeatNode(currColour, currPath, currLifetime, TACTO_LOOPTYPE_BASS, currNumBeats);
+		loops2->addChild(currBassLoop);
+	}
+	root->addChild(loops2);
+	
+	// 3) Loops 3 - Horns, Guitar, Banjo, Synth
+	ofxTactoSHPMNode* loops3 = new ofxTactoSHPMNode(coulourMenuNodes, TACTO_LOOPTYPE_LEAD);
+	int numLead = m_settings.getNumTags("lead");
+	for (int i=0; i < numLead; i++)
+	{
+		std::string currPath = m_settings.getAttribute("lead", "path", "", i);
+		std::string sCurrColour = m_settings.getAttribute("lead", "colour", "0xFFFFFF", i);
+		int nCurrColour = ofHexToInt(sCurrColour);
+		int r = (nCurrColour & 0xFF0000) >> 16;
+		int g = (nCurrColour & 0x00FF00) >> 8;
+		int b = nCurrColour & 0x0000FF;
+		ofColor currColour = ofColor(r, g, b);
+		int currLifetime = m_settings.getAttribute("lead", "lifetime", 0, i);
+		int currNumBeats = m_settings.getAttribute("lead", "beats", 4, i);
+		
+		ofxTactoBeatNode* currLeadLoop = new ofxTactoBeatNode(currColour, currPath, currLifetime, TACTO_LOOPTYPE_LEAD, currNumBeats);
+		loops3->addChild(currLeadLoop );
+	}
+	root->addChild(loops3);
+
+	m_shpmMenu.setup(root, ptCentre, 150);
+	
+	// ********************************************************************************
+	// SETUP THE FOUR STOVE TOPS
+	// ********************************************************************************
 	int nRadius = ofGetHeight()/3;
 	ofPoint ptPotOrigin = ofPoint(ofGetWidth()/2, ofGetHeight()/3);
 	m_stovetops[stoveInformation::FRONT_RIGHT] = ofxStovetop(stoveInformation::FRONT_RIGHT, ptPotOrigin, m_nBPM);
@@ -92,51 +172,6 @@ void metaphorKitchen::setup()
 	ptPotOrigin = ofPoint(ofGetWidth()/2, - ofGetHeight() * 2/3);
 	m_stovetops[stoveInformation::REAR_RIGHT] = ofxStovetop(stoveInformation::REAR_RIGHT, ptPotOrigin, m_nBPM);
 
-	// Create menu structure and load loops
-	ofColor coulourMenuNodes(0x5D, 0xB1, 0xDB);
-	ofColor colourCountry(0xFF, 0x00, 0x00);
-	ofColor colourJazz(0x00, 0xFF, 0x00);
-	ofColor colourHipHop(0x00, 0x00, 0xFF);
-	ofColor colourFunk(0xAB, 0x00, 0xAB);
-	ofPoint ptCentre = ofPoint(ofGetWidth()/2, ofGetHeight());
-	ofxTactoSHPMNode* root = new ofxTactoSHPMNode(ofColor(0x25, 0x85, 0xD9));
-	// Add the children root
-	// 1) Loops 1 - Drums
-	ofxTactoSHPMNode* loops1 = new ofxTactoSHPMNode(coulourMenuNodes, TACTO_LOOPTYPE_DRUMS);
-	ofxTactoBeatNode* drumLoop1 = new ofxTactoBeatNode(colourCountry, "sound/Country_Drums.aif", -1, TACTO_LOOPTYPE_DRUMS, 32);
-	ofxTactoBeatNode* drumLoop2 = new ofxTactoBeatNode(colourFunk, "sound/Funk_Drums.aif", -1, TACTO_LOOPTYPE_DRUMS, 32);
-	ofxTactoBeatNode* drumLoop3 = new ofxTactoBeatNode(colourHipHop, "sound/HipHop_Drums.aif", -1, TACTO_LOOPTYPE_DRUMS, 32);
-	ofxTactoBeatNode* drumLoop4 = new ofxTactoBeatNode(colourJazz, "sound/Jazz_Drums.aif", -1, TACTO_LOOPTYPE_DRUMS, 32);
-	loops1->addChild(drumLoop1);
-	loops1->addChild(drumLoop2);
-	loops1->addChild(drumLoop3);
-	loops1->addChild(drumLoop4);	
-	root->addChild(loops1);
-	// 2) Loops 2 - Bass
-	ofxTactoSHPMNode* loops2 = new ofxTactoSHPMNode(coulourMenuNodes, TACTO_LOOPTYPE_BASS);
-	ofxTactoBeatNode* bassLoop1 = new ofxTactoBeatNode(colourCountry, "sound/Country_Bass.aif", -1, TACTO_LOOPTYPE_BASS, 32);
-	ofxTactoBeatNode* bassLoop2 = new ofxTactoBeatNode(colourFunk, "sound/Funk_Bass.aif", -1, TACTO_LOOPTYPE_BASS, 32);
-	ofxTactoBeatNode* bassLoop3 = new ofxTactoBeatNode(colourHipHop, "sound/HipHop_Bass.aif", -1, TACTO_LOOPTYPE_BASS, 32);
-	ofxTactoBeatNode* bassLoop4 = new ofxTactoBeatNode(colourJazz, "sound/Jazz_Bass.aif", -1, TACTO_LOOPTYPE_BASS, 32);
-	loops2->addChild(bassLoop1);
-	loops2->addChild(bassLoop2);
-	loops2->addChild(bassLoop3);
-	loops2->addChild(bassLoop4);
-	root->addChild(loops2);
-	// 3) Loops 3 - Horns, Guitar, Banjo, Synth
-	ofxTactoSHPMNode* loops3 = new ofxTactoSHPMNode(coulourMenuNodes, TACTO_LOOPTYPE_LEAD);
-	ofxTactoBeatNode* spiceLoop1 = new ofxTactoBeatNode(colourFunk, "sound/Funk_Guitar.aif", -1, TACTO_LOOPTYPE_LEAD, 32);
-	ofxTactoBeatNode* spiceLoop2 = new ofxTactoBeatNode(colourFunk, "sound/Funk_Saxophone.aif", -1, TACTO_LOOPTYPE_LEAD, 32);
-	ofxTactoBeatNode* spiceLoop3 = new ofxTactoBeatNode(colourHipHop, "sound/HipHop_Synth.aif", -1, TACTO_LOOPTYPE_LEAD, 32);
-	ofxTactoBeatNode* spiceLoop4 = new ofxTactoBeatNode(colourJazz, "sound/Jazz_Horn.aif", -1, TACTO_LOOPTYPE_LEAD, 32);
-	ofxTactoBeatNode* spiceLoop5 = new ofxTactoBeatNode(colourCountry, "sound/Country_Banjo.aif", -1, TACTO_LOOPTYPE_LEAD, 32);
-	loops3->addChild(spiceLoop1);
-	loops3->addChild(spiceLoop2);
-	loops3->addChild(spiceLoop3);
-	loops3->addChild(spiceLoop4);
-	loops3->addChild(spiceLoop5);
-	root->addChild(loops3);
-	m_shpmMenu.setup(root, ptCentre, 150);
 	m_nTimeOfCreationMs = ofGetElapsedTimeMillis();
 }
 

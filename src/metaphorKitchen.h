@@ -17,13 +17,12 @@
  */
 
 #include "ofMain.h"
-
-// GUI
 #include "UI/ofxTactoSHPM.h"
 #include "UI/ofxTactoBeatNode.h"
 #include "ofxStovetop.h"
 #include "ofxCookableNode.h"
 #include <vector>
+#include "ofxXmlSettings.h"
 
 /// A class that implements a dragged point.
 class draggedBGPoint : public ofPoint
@@ -73,6 +72,7 @@ private:
 	int						m_nBPM; ///< The tempo in beats per minute of the music.
 	vector<draggedBGPoint>	m_draggedBackgroundPoints; ///< A vector of points being dragged in the background of the user interface.
 	int						m_nTimeOfCreationMs; ///< The time in milliseconds of creation of the metaphor.
+	ofxXmlSettings			m_settings; ///< The XML interface to save and load the configuration.
 };
 
 #endif
