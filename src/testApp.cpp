@@ -26,22 +26,30 @@ void testApp::setup()
 	ofImage logo = ofImage("images/Kitchen.png");
 
 	// ********************************************************************************
-	// METAPHOR ENVIRONMENTS
+	// Metaphor environments
 	// ********************************************************************************
 	m_metaKitchen.setup();
 	
 	// ********************************************************************************
-	// MULTI-TOUCH SUPPORT
+	// Multi-touch support
 	// ********************************************************************************
 	m_touchEngine.setup();
 	ofAddListener(ofEvents().touchDown, this, &testApp::touchDown);
 	ofAddListener(ofEvents().touchUp, this, &testApp::touchUp);
+	
+	// ********************************************************************************
+	// Particle system
+	// ********************************************************************************
+	if ( !m_emitter.loadFromXml( "circles.pex" ) )
+	{
+		ofLog( OF_LOG_ERROR, "testApp::setup() - failed to load emitter config" );
+	}
 }
 
 void testApp::update()
 {
 	// ************************************************************
-	// BLOB HANDLING
+	// Blob handling
 	// ************************************************************
 	switch(m_nState) {
 	case STATE_KITCHEN:
@@ -50,9 +58,14 @@ void testApp::update()
 	}
 	
 	// ************************************************************
-	// MULTI-TOUCH
+	// Multi-touch
 	// ************************************************************
 	m_touchEngine.update();
+	
+	// ************************************************************
+	// Particle system
+	// ************************************************************
+	m_emitter.update();
 }
 
 void testApp::draw()
@@ -61,7 +74,7 @@ void testApp::draw()
 	{
 	case STATE_INTRO:
 		// ************************************************************
-		// DRAW IDMIL LOGO
+		// Draw IDMIL logo
 		// ************************************************************
 		ofSetHexColor(0xFFFFFF);
 		m_IDMILlogo.draw(ofGetWidth()/2 - m_IDMILlogo.getWidth()/2,
@@ -87,6 +100,9 @@ void testApp::draw()
 #endif
 	
 	m_touchEngine.drawBlobs();
+
+	// Draw the particle emitter
+	m_emitter.draw( 0, 0 );
 }
 
 void testApp::exit()
@@ -214,6 +230,8 @@ void testApp::mouseTouchMoved(float x, float y, bool fullRange, int button, int 
 		break;
 	case STATE_KITCHEN:
 		m_metaKitchen.mouseTouchMoved(x, y, fullRange, button, touchId);
+		m_emitter.sourcePosition.x = x;
+		m_emitter.sourcePosition.y = y;
 		break;
 	default:
 		break;

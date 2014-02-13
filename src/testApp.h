@@ -18,6 +18,7 @@
 #include "ofxTextSuite.h"
 #include "metaphorKitchen.h"
 #include "ofxTactoHandler.h"
+#include "ofxParticleEmitter.h"
 
 #ifdef _DEBUG
 	#define VERBOSE // display information in the console about changing mapping values
@@ -73,6 +74,9 @@ private:
 	
 	// Touch handler
     ofxTactoHandler			m_touchEngine; ///< The handler of TUIO events.
+
+	// Particle system
+	ofxParticleEmitter		m_emitter;
 };
 
 #endif
