@@ -40,11 +40,41 @@ void testApp::setup()
 	// ********************************************************************************
 	// Particle system
 	// ********************************************************************************
+#ifdef _USE_OFXPARTICLEEMITTER_
 	if ( !m_emitter.loadFromXml( "circles.pex" ) )
 	{
 		ofLog( OF_LOG_ERROR, "testApp::setup() - failed to load emitter config" );
 	}
+#else	
+	int num = 1500;
+	p.assign(num, demoParticle());
+	currentMode = PARTICLE_MODE_ATTRACT;
+
+	currentModeStr = "1 - PARTICLE_MODE_ATTRACT: attracts to mouse"; 
+
+	resetParticles();
+#endif
 }
+
+#ifndef _USE_OFXPARTICLEEMITTER_
+//--------------------------------------------------------------
+void testApp::resetParticles() {
+
+	//these are the attraction points used in the forth demo 
+	attractPoints.clear();
+	for(int i = 0; i < 4; i++){
+		attractPoints.push_back( ofPoint( ofMap(i, 0, 4, 100, ofGetWidth()-100) , ofRandom(100, ofGetHeight()-100) ) );
+	}
+	
+	attractPointsWithMovement = attractPoints;
+	
+	for(int i = 0; i < p.size(); i++){
+		p[i].setMode(currentMode);		
+		p[i].setAttractPoints(&attractPointsWithMovement);;
+		p[i].reset();
+	}	
+}
+#endif
 
 void testApp::update()
 {
@@ -65,7 +95,20 @@ void testApp::update()
 	// ************************************************************
 	// Particle system
 	// ************************************************************
+#ifdef _USE_OFXPARTICLEEMITTER_
 	m_emitter.update();
+#else
+	for(int i = 0; i < p.size(); i++){
+		p[i].setMode(currentMode);
+		p[i].update();
+	}
+	
+	//lets add a bit of movement to the attract points
+	for(int i = 0; i < attractPointsWithMovement.size(); i++){
+		attractPointsWithMovement[i].x = attractPoints[i].x + ofSignedNoise(i * 10, ofGetElapsedTimef() * 0.7) * 12.0;
+		attractPointsWithMovement[i].y = attractPoints[i].y + ofSignedNoise(i * -10, ofGetElapsedTimef() * 0.7) * 12.0;
+	}	
+#endif
 }
 
 void testApp::draw()
@@ -102,7 +145,27 @@ void testApp::draw()
 	m_touchEngine.drawBlobs();
 
 	// Draw the particle emitter
+#ifdef _USE_OFXPARTICLEEMITTER_
 	m_emitter.draw( 0, 0 );
+#else
+
+	for(int i = 0; i < p.size(); i++){
+		p[i].draw();
+	}
+	
+	ofSetColor(190);
+	if( currentMode == PARTICLE_MODE_NEAREST_POINTS ){
+		for(int i = 0; i < attractPoints.size(); i++){
+			ofNoFill();
+			ofCircle(attractPointsWithMovement[i], 10);
+			ofFill();
+			ofCircle(attractPointsWithMovement[i], 4);
+		}
+	}
+
+	ofSetColor(230);	
+	ofDrawBitmapString(currentModeStr + "\n\nSpacebar to reset. \nKeys 1-4 to change mode.", 10, 20);
+#endif
 }
 
 void testApp::exit()
@@ -115,6 +178,30 @@ void testApp::exit()
 void testApp::keyPressed  (int key)
 {
 	m_metaKitchen.keyPressed(key);
+	
+#ifndef _USE_OFXPARTICLEEMITTER_
+	if( key == '1'){
+		currentMode = PARTICLE_MODE_ATTRACT;
+		currentModeStr = "1 - PARTICLE_MODE_ATTRACT: attracts to mouse"; 		
+	}
+	if( key == '2'){
+		currentMode = PARTICLE_MODE_REPEL;
+		currentModeStr = "2 - PARTICLE_MODE_REPEL: repels from mouse"; 				
+	}
+	if( key == '3'){
+		currentMode = PARTICLE_MODE_NEAREST_POINTS;
+		currentModeStr = "3 - PARTICLE_MODE_NEAREST_POINTS: hold 'f' to disable force"; 						
+	}
+	if( key == '4'){
+		currentMode = PARTICLE_MODE_NOISE;
+		currentModeStr = "4 - PARTICLE_MODE_NOISE: snow particle simulation"; 						
+		resetParticles();
+	}	
+		
+	if( key == ' ' ){
+		resetParticles();
+	}
+#endif
 }
 
 /** \param key The key released.
@@ -230,8 +317,11 @@ void testApp::mouseTouchMoved(float x, float y, bool fullRange, int button, int 
 		break;
 	case STATE_KITCHEN:
 		m_metaKitchen.mouseTouchMoved(x, y, fullRange, button, touchId);
+#ifdef _USE_OFXPARTICLEEMITTER_
 		m_emitter.sourcePosition.x = x;
 		m_emitter.sourcePosition.y = y;
+#else
+#endif
 		break;
 	default:
 		break;

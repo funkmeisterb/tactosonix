@@ -14,11 +14,17 @@
  *
  */
 
+//#define _USE_OFXPARTICLEEMITTER_
+
 #include "ofMain.h"
 #include "ofxTextSuite.h"
 #include "metaphorKitchen.h"
 #include "ofxTactoHandler.h"
-#include "ofxParticleEmitter.h"
+#ifdef _USE_OFXPARTICLEEMITTER_
+	#include "ofxParticleEmitter.h"
+#else
+	#include "demoParticle.h"
+#endif
 
 #ifdef _DEBUG
 	#define VERBOSE // display information in the console about changing mapping values
@@ -76,7 +82,17 @@ private:
     ofxTactoHandler			m_touchEngine; ///< The handler of TUIO events.
 
 	// Particle system
+#ifdef _USE_OFXPARTICLEEMITTER_
 	ofxParticleEmitter		m_emitter;
+#else
+	void					resetParticles();
+	particleMode currentMode;
+	string currentModeStr; 
+
+	vector <demoParticle> p;
+	vector <ofPoint> attractPoints;
+	vector <ofPoint> attractPointsWithMovement;
+#endif
 };
 
 #endif
