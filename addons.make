@@ -1,0 +1,4 @@
+ofxOsc
+ofxXmlSettings
+ofxTactoSonixTools
+ofxTextSuite
