@@ -14,17 +14,15 @@
  *
  */
 
-//#define _USE_OFXPARTICLEEMITTER_
+#define _USE_OFXPARTICLEEMITTER_ // uncomment to use ofxParticleEmitter external
 
 #include "ofMain.h"
 #include "ofxTextSuite.h"
 #include "metaphorKitchen.h"
 #include "ofxTactoHandler.h"
-#ifdef _USE_OFXPARTICLEEMITTER_
-	#include "ofxParticleEmitter.h"
-#else
-	#include "demoParticle.h"
-#endif
+
+#include "ofxParticleEmitter.h"
+#include "demoParticle.h"
 
 #ifdef _DEBUG
 	#define VERBOSE // display information in the console about changing mapping values
@@ -50,6 +48,7 @@ public:
 	void					keyPressed  (int key); ///< Regular OpenFrameworks function.
 	void					keyReleased(int key); ///< Regular OpenFrameworks function.
 	void					mouseDragged(int x, int y, int button); ///< Regular OpenFrameworks function.
+	void					mouseMoved(int x, int y); ///< Regular OpenFrameworks function.
 	void					mousePressed(int x, int y, int button); ///< Regular OpenFrameworks function.
 	void					mouseReleased(int x, int y, int button); ///< Regular OpenFrameworks function.
 	void					windowResized(int w, int h); ///< Regular OpenFrameworks function.
@@ -80,19 +79,18 @@ private:
 	
 	// Touch handler
     ofxTactoHandler			m_touchEngine; ///< The handler of TUIO events.
+	ofPoint					m_dragDelta; ///< The drag motion difference between frames.
+	ofPoint					m_oldCursorPosition;
 
 	// Particle system
-#ifdef _USE_OFXPARTICLEEMITTER_
 	ofxParticleEmitter		m_emitter;
-#else
 	void					resetParticles();
-	particleMode currentMode;
-	string currentModeStr; 
+	particleMode			currentMode;
+	string					currentModeStr; 
 
-	vector <demoParticle> p;
-	vector <ofPoint> attractPoints;
-	vector <ofPoint> attractPointsWithMovement;
-#endif
+	vector<demoParticle>	p;
+	vector<ofPoint>			attractPoints;
+	vector<ofPoint>			attractPointsWithMovement;
 };
 
 #endif

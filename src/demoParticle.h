@@ -2,10 +2,12 @@
 #include "ofMain.h"
 
 enum particleMode{
-	PARTICLE_MODE_ATTRACT = 0,
-	PARTICLE_MODE_REPEL,
-	PARTICLE_MODE_NEAREST_POINTS,
-	PARTICLE_MODE_NOISE
+	PARTICLE_MODE_ATTRACT = 0,			// attracted to mouse
+	PARTICLE_MODE_REPEL,				// repel from mouse
+	PARTICLE_MODE_NEAREST_POINTS,		// attracted to a few spots
+	PARTICLE_MODE_NOISE,				// like snow
+	PARTICLE_MODE_EMITTER,				// emit particles that have a lifetime
+	PARTICLE_MODE_OFXPARTICLEEMITTER	// OF add-on
 };
 
 class demoParticle{

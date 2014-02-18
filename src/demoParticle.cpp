@@ -30,10 +30,10 @@ void demoParticle::reset(){
 	
 	scale = ofRandom(0.5, 1.0);
 	
-	if( mode == PARTICLE_MODE_NOISE ){
+	if(mode == PARTICLE_MODE_NOISE) {
 		drag  = ofRandom(0.97, 0.99);
 		vel.y = fabs(vel.y) * 3.0; //make the particles all be going down
-	}else{
+	} else {
 		drag  = ofRandom(0.95, 0.998);	
 	}
 }
@@ -41,8 +41,7 @@ void demoParticle::reset(){
 //------------------------------------------------------------------
 void demoParticle::update(){
 
-	//1 - APPLY THE FORCES BASED ON WHICH MODE WE ARE IN 
-	
+	//1 - APPLY THE FORCES BASED ON WHICH MODE WE ARE IN
 	if( mode == PARTICLE_MODE_ATTRACT ){
 		ofPoint attractPt(ofGetMouseX(), ofGetMouseY());
 		frc = attractPt-pos; // we get the attraction force/vector by looking at the mouse pos relative to our pos
@@ -87,9 +86,7 @@ void demoParticle::update(){
 		}
 	}
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
-		
-		if( attractPoints ){
-
+		if( attractPoints ){			
 			//1 - find closest attractPoint 
 			ofPoint closestPt;
 			int closest = -1; 
@@ -110,9 +107,9 @@ void demoParticle::update(){
 				
 				//in this case we don't normalize as we want to have the force proportional to distance 
 				frc = closestPt - pos;
-		
+				
 				vel *= drag;
-				 
+				
 				//lets also limit our attraction to a certain distance and don't apply if 'f' key is pressed
 				if( dist < 300 && dist > 40 && !ofGetKeyPressed('f') ){
 					vel += frc * 0.003;
@@ -122,18 +119,23 @@ void demoParticle::update(){
 					frc.y = ofSignedNoise(uniqueVal, pos.x * 0.01, ofGetElapsedTimef()*0.2);
 					vel += frc * 0.4;
 				}
-				
 			}
-		
 		}
+	}
+	else if( mode == PARTICLE_MODE_EMITTER ){
+		// emit particles
+		ofPoint attractPt(ofGetMouseX(), ofGetMouseY());
+		frc = attractPt-pos; // we get the attraction force/vector by looking at the mouse pos relative to our pos
+		frc.normalize(); //by normalizing we disregard how close the particle is to the attraction point 
 		
+		vel *= drag; //apply drag
+		//vel += frc * 0.9; //apply force
+		vel += frc * 2.0; //apply force
 	}
 	
 	
 	//2 - UPDATE OUR POSITION
-	
-	pos += vel; 
-	
+	pos += vel;	
 	
 	//3 - (optional) LIMIT THE PARTICLES TO STAY ON SCREEN 
 	//we could also pass in bounds to check - or alternatively do this at the testApp level
@@ -165,10 +167,14 @@ void demoParticle::draw(){
 		ofSetColor(208, 255, 63);
 	}
 	else if( mode == PARTICLE_MODE_NOISE ){
-		ofSetColor(99, 63, 255);
+		// snow-like
+		ofSetColor(0xFFFFFF);
 	}
 	else if( mode == PARTICLE_MODE_NEAREST_POINTS ){
 		ofSetColor(103, 160, 237);
+	}
+	else if( mode == PARTICLE_MODE_OFXPARTICLEEMITTER ){
+		ofSetColor(0xFF, 0xFF, 0);
 	}
 			
 	ofCircle(pos.x, pos.y, scale * 4.0);

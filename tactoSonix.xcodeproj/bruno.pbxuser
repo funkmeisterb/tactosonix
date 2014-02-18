@@ -1,5 +1,109 @@
 // !$*UTF8*$!
 {
+	152A6E3518B181720064690A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 152A6E3618B181720064690A /* testApp.h */;
+		name = "testApp.h: 16";
+		rLen = 14;
+		rLoc = 183;
+		rType = 0;
+		vrLen = 536;
+		vrLoc = 0;
+	};
+	152A6E3618B181720064690A /* testApp.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = testApp.h;
+		path = /Users/bruno/DEV/OF_Bru/addons/ofxParticleEmitter/src/testApp.h;
+		sourceTree = "<absolute>";
+	};
+	152A6E3818B181720064690A /* testApp.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = testApp.cpp;
+		path = /Users/bruno/DEV/OF_Bru/addons/ofxParticleEmitter/src/testApp.cpp;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1066}}";
+			sepNavSelRange = "{287, 0}";
+			sepNavVisRange = "{0, 777}";
+		};
+	};
+	152A6E7F18B1898C0064690A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600B8118AF596400767285 /* metaphorKitchen.h */;
+		name = "metaphorKitchen.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1190;
+		vrLoc = 0;
+	};
+	152A6E8A18B18A390064690A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600B8018AF596400767285 /* metaphorKitchen.cpp */;
+		name = "metaphorKitchen.cpp: 354";
+		rLen = 91;
+		rLoc = 11823;
+		rType = 0;
+		vrLen = 1159;
+		vrLoc = 11129;
+	};
+	152A6F2918B1A4D50064690A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600B7E18AF596400767285 /* demoParticle.cpp */;
+		name = "demoParticle.cpp: 178";
+		rLen = 0;
+		rLoc = 5634;
+		rType = 0;
+		vrLen = 1385;
+		vrLoc = 3305;
+	};
+	15600B7E18AF596400767285 /* demoParticle.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1160, 2431}}";
+			sepNavSelRange = "{5634, 0}";
+			sepNavVisRange = "{3305, 1385}";
+		};
+	};
+	15600B7F18AF596400767285 /* demoParticle.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 484}}";
+			sepNavSelRange = "{313, 0}";
+			sepNavVisRange = "{0, 727}";
+			sepNavWindowFrame = "{{15, 50}, {1129, 728}}";
+		};
+	};
+	15600B8018AF596400767285 /* metaphorKitchen.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 6799}}";
+			sepNavSelRange = "{11823, 91}";
+			sepNavVisRange = "{11129, 1159}";
+		};
+	};
+	15600B8118AF596400767285 /* metaphorKitchen.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1222}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1190}";
+		};
+	};
+	15600BCE18AF596400767285 /* ofxParticleEmitter.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 7943}}";
+			sepNavSelRange = "{3875, 0}";
+			sepNavVisRange = "{5387, 3058}";
+			sepNavWindowFrame = "{{15, 50}, {1129, 728}}";
+		};
+	};
+	15600BCF18AF596400767285 /* ofxParticleEmitter.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 2873}}";
+			sepNavSelRange = "{5320, 18}";
+			sepNavVisRange = "{4924, 1567}";
+			sepNavWindowFrame = "{{15, 50}, {1129, 728}}";
+		};
+	};
 	15600C1718AF596400767285 /* tactoSonix */ = {
 		isa = PBXExecutable;
 		activeArgIndices = (
@@ -7,7 +111,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -16,6 +120,7 @@
 		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
 		enableDebugStr = 1;
 		environmentEntries = (
 		);
@@ -23,9 +128,13 @@
 		executableUserSymbolLevel = 0;
 		libgmallocEnabled = 0;
 		name = tactoSonix;
+		savedGlobals = {
+		};
 		showTypeColumn = 0;
 		sourceDirectories = (
 		);
+		variableFormatDictionary = {
+		};
 	};
 	15600C2018AF596800767285 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -41,23 +150,136 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
+	15600C3818AF625600767285 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600C3918AF625600767285 /* addons.make */;
+		name = "addons.make: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 80;
+		vrLoc = 0;
+	};
+	15600C3918AF625600767285 /* addons.make */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = text;
+		name = addons.make;
+		path = /Users/bruno/DEV/OF_Bru/apps/IDMIL/tactoSonix/addons.make;
+		sourceTree = "<absolute>";
+	};
+	15CB9EE518B1ABB200EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 152A6E3818B181720064690A /* testApp.cpp */;
+		name = "testApp.cpp: 13";
+		rLen = 0;
+		rLoc = 287;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 0;
+	};
+	15CB9F8018B1B5AA00EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600BCF18AF596400767285 /* ofxParticleEmitter.h */;
+		name = "ofxParticleEmitter.h: 182";
+		rLen = 18;
+		rLoc = 5320;
+		rType = 0;
+		vrLen = 1567;
+		vrLoc = 4924;
+	};
+	15CB9F8D18B1B86800EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600B7F18AF596400767285 /* demoParticle.h */;
+		name = "demoParticle.h: 9";
+		rLen = 0;
+		rLoc = 313;
+		rType = 0;
+		vrLen = 727;
+		vrLoc = 0;
+	};
+	15CB9FFA18B1C89500EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15600BCE18AF596400767285 /* ofxParticleEmitter.cpp */;
+		name = "ofxParticleEmitter.cpp: 130";
+		rLen = 0;
+		rLoc = 3875;
+		rType = 0;
+		vrLen = 3058;
+		vrLoc = 5387;
+	};
+	15CBA00618B1C94D00EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E4B69E1F0A3A1BDC003C02F2 /* testApp.h */;
+		name = "testApp.h: 82";
+		rLen = 11;
+		rLoc = 3440;
+		rType = 0;
+		vrLen = 1426;
+		vrLoc = 2380;
+	};
+	15CBA00718B1C94D00EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */;
+		name = "testApp.cpp: 343";
+		rLen = 5;
+		rLoc = 9678;
+		rType = 0;
+		vrLen = 1499;
+		vrLoc = 8976;
+	};
+	15CBA00A18B2DD2600EF5012 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */;
+		name = "testApp.cpp: 168";
+		rLen = 0;
+		rLoc = 5098;
+		rType = 0;
+		vrLen = 1037;
+		vrLoc = 4880;
+	};
 	E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 15600C1718AF596400767285 /* tactoSonix */;
 		activeTarget = E4B69B5A0A3A1756003C02F2 /* tactoSonix */;
+		breakpoints = (
+		);
 		codeSenseManager = 15600C2118AF596800767285 /* Code sense */;
 		executables = (
 			15600C1718AF596400767285 /* tactoSonix */,
 		);
 		perUserDictionary = {
-			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = 1;
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
 					833,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -72,8 +294,22 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 414144868;
-			PBXWorkspaceStateSaveDate = 414144868;
+			PBXPerProjectTemplateStateSaveDate = 414295746;
+			PBXWorkspaceStateSaveDate = 414295746;
+		};
+		perUserProjectItems = {
+			152A6E3518B181720064690A /* PBXTextBookmark */ = 152A6E3518B181720064690A /* PBXTextBookmark */;
+			152A6E7F18B1898C0064690A /* PBXTextBookmark */ = 152A6E7F18B1898C0064690A /* PBXTextBookmark */;
+			152A6E8A18B18A390064690A /* PBXTextBookmark */ = 152A6E8A18B18A390064690A /* PBXTextBookmark */;
+			152A6F2918B1A4D50064690A /* PBXTextBookmark */ = 152A6F2918B1A4D50064690A /* PBXTextBookmark */;
+			15600C3818AF625600767285 /* PBXTextBookmark */ = 15600C3818AF625600767285 /* PBXTextBookmark */;
+			15CB9EE518B1ABB200EF5012 /* PBXTextBookmark */ = 15CB9EE518B1ABB200EF5012 /* PBXTextBookmark */;
+			15CB9F8018B1B5AA00EF5012 /* PBXTextBookmark */ = 15CB9F8018B1B5AA00EF5012 /* PBXTextBookmark */;
+			15CB9F8D18B1B86800EF5012 /* PBXTextBookmark */ = 15CB9F8D18B1B86800EF5012 /* PBXTextBookmark */;
+			15CB9FFA18B1C89500EF5012 /* PBXTextBookmark */ = 15CB9FFA18B1C89500EF5012 /* PBXTextBookmark */;
+			15CBA00618B1C94D00EF5012 /* PBXTextBookmark */ = 15CBA00618B1C94D00EF5012 /* PBXTextBookmark */;
+			15CBA00718B1C94D00EF5012 /* PBXTextBookmark */ = 15CBA00718B1C94D00EF5012 /* PBXTextBookmark */;
+			15CBA00A18B2DD2600EF5012 /* PBXTextBookmark */ = 15CBA00A18B2DD2600EF5012 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 15600C2018AF596800767285 /* Source Control */;
 		userBuildSettings = {
@@ -84,5 +320,21 @@
 		executables = (
 			15600C1718AF596400767285 /* tactoSonix */,
 		);
+	};
+	E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 5304}}";
+			sepNavSelRange = "{5098, 0}";
+			sepNavVisRange = "{4880, 1037}";
+			sepNavWindowFrame = "{{15, 50}, {1129, 728}}";
+		};
+	};
+	E4B69E1F0A3A1BDC003C02F2 /* testApp.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1195, 1261}}";
+			sepNavSelRange = "{3440, 11}";
+			sepNavVisRange = "{2380, 1426}";
+			sepNavWindowFrame = "{{15, 50}, {1129, 728}}";
+		};
 	};
 }
