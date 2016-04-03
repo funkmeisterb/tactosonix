@@ -1,0 +1,51 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "27987CD746B6EBFCDCF96AFC1B3F52E5396308B0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "27987CD746B6EBFCDCF96AFC1B3F52E5396308B0" : 0,
+    "A28DD04B533CC17482890F12CADE9ADB3CCDA0E8" : 0,
+    "7D7EC3C29EF79929D82563AF7E4C175E0FC52A89" : 0,
+    "2DE9C8846D9375EAACFABA8963120E8E7719BAF5" : 0,
+    "72D25900503C1EDEC22C56B3CBC898443AB798C3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EEBBA087-08B2-460A-A09D-A2E4BDF50B6A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "27987CD746B6EBFCDCF96AFC1B3F52E5396308B0" : "tactosonix\/",
+    "A28DD04B533CC17482890F12CADE9ADB3CCDA0E8" : "..\/..\/addons\/ofxTactoSonixTools",
+    "7D7EC3C29EF79929D82563AF7E4C175E0FC52A89" : "..\/..\/addons\/ofxTextSuite",
+    "2DE9C8846D9375EAACFABA8963120E8E7719BAF5" : "..\/..",
+    "72D25900503C1EDEC22C56B3CBC898443AB798C3" : "..\/..\/addons\/ofxParticleEmitter"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "tactosonix",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "tactosonix.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/funkmeisterb\/tactosonix.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "27987CD746B6EBFCDCF96AFC1B3F52E5396308B0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/funkmeisterb\/openFrameworks.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2DE9C8846D9375EAACFABA8963120E8E7719BAF5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sroske\/ofxParticleEmitter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72D25900503C1EDEC22C56B3CBC898443AB798C3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Furkanzmc\/ofxTextSuite.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7D7EC3C29EF79929D82563AF7E4C175E0FC52A89"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/funkmeisterb\/ofxTactoSonixTools",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A28DD04B533CC17482890F12CADE9ADB3CCDA0E8"
+    }
+  ]
+}
