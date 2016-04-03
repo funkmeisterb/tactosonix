@@ -3,8 +3,8 @@ tactosonix
 
 TactoSonix is a ludic multitouch DJing application based on nonconventional user interface metaphors.
 
-To build it, you need to install it as an OpenFrameworks v0073 app, using the changes in branch 'custom0073' 
+To build it, you need to install it as an OpenFrameworks v0.9.3 app, using branch 0.9.3 
 of https://github.com/funkmeisterb/openFrameworks.git.
-The following add-ons are required: ofxOsc, ofxXmlSettings, ofxTactoSonixTools, ofxTextSuite.
+The following add-ons are required: ofxOsc, ofxGui, ofxTactoSonixTools, ofxTextSuite, ofxParticleEmitter, ofxXmlSettings, ofxOpenCv.
 
-Built for Windows 7, OSX 10.6.8, Linux Ubuntu 12.10.
+Built for Windows 10, OSX 10.6.8, Linux Ubuntu 12.10.
