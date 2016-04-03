@@ -1,6 +1,7 @@
 ofxOsc
-ofxXmlSettings
 ofxGui
-ofxParticleEmitter
 ofxTactoSonixTools
 ofxTextSuite
+ofxParticleEmitter
+ofxXmlSettings
+ofxOpenCv

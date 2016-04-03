@@ -111,7 +111,8 @@ void ofxCookableNode::setLowpass(float pct)
 	m_fLowpass = pct;
 	// We map [0-1] to a more purposeful frequency range
 	float mappedValue = 0.33f * pct; // y = 0.33*x
-	ofSoundPlayer::setLowpass(mappedValue);
+	ofLogWarning("ofxCookableNode", "No lowpass implementation yet");
+	//ofSoundPlayer::setLowpass(mappedValue);
 }
 
 void ofxCookableNode::drawLowpass()

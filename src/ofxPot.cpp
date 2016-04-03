@@ -1,6 +1,6 @@
 #include "ofxPot.h"
 #include "UI/ofxTactoSHPM.h"
-#include "testApp.h"
+#include "ofApp.h"
 
 #include "TactosonixHelpers.h"
 using namespace TactoHelpers;
@@ -463,7 +463,7 @@ bool ofxPot::mouseTouchMoved(float x, float y, bool fullRange, int button, int t
 	    {
 			// Move the node, don't forget the offset
 			ofPoint ptWithOffset(ptCompare.x, ptCompare.y);
-			ofPoint offset = ((testApp*)ofGetAppPtr())->getKitchen()->getDragOffset();
+			ofPoint offset = ((ofApp*)ofGetAppPtr())->getKitchen()->getDragOffset();
 			ptWithOffset -= offset;
 			(*It)->setOriginInit(ptWithOffset, false);
 			(*It)->setOrigin(ofPoint(ptCompare.x, ptCompare.y), false);
