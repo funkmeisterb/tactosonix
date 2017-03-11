@@ -225,12 +225,7 @@ void metaphorKitchen::keyPressed  (int key)
 		screenImg.allocate(ofGetWidth(), ofGetHeight(), OF_IMAGE_COLOR);  
 		screenImg.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
 		screenImg.resize(400, 300);
-		std::string strMonth = ofGetMonth() < 10 ? "0" + ofToString(ofGetMonth()) : ofToString(ofGetMonth());
-		std::string strDay = ofGetDay() < 10 ? "0" + ofToString(ofGetDay()) : ofToString(ofGetDay());
-		std::string strHours = ofGetHours() < 10 ? "0" + ofToString(ofGetHours()) : ofToString(ofGetHours());
-		std::string strMins = ofGetMinutes() < 10 ? "0" + ofToString(ofGetMinutes()) : ofToString(ofGetMinutes());
-		std::string strSecs = ofGetSeconds() < 10 ? "0" + ofToString(ofGetSeconds()) : ofToString(ofGetSeconds());
-		std::string strSuffix = ofToString(ofGetYear()) + strMonth + strDay + "_" + strHours + "h" + strMins + "m" + strSecs + "s" ;
+		std::string strSuffix = ofGetTimestampString();
 		
 #ifdef _DEBUG
 		strSuffix += "_debug";

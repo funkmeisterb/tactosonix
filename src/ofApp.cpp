@@ -313,12 +313,13 @@ void ofApp::mouseTouchDown(float x, float y, bool fullRange, int button, int tou
 #ifdef USE_PARTICLES
 	m_emitter.startEmitting();
 #endif
-	m_metaKitchen.mouseTouchDown(x, y, fullRange, button, touchId);
 	switch (m_nState) {
 	case STATE_INTRO:
+		break;
 	case STATE_ENVIRONMENTS:
-		//m_emit
+		break;
 	case STATE_KITCHEN:
+		m_metaKitchen.mouseTouchDown(x, y, fullRange, button, touchId);
 		break;
 	default:
 		break;
